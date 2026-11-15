@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f9fd">
+  <meta name="description" content="NaviCraft: Scaling Generalizable 3D Scene Editing in Native 3D Latent Space. Text-guided scene manipulation with NaviVAE and NaviEdit-1M.">
+  <meta property="og:title" content="NaviCraft | Native 3D Scene Editing">
+  <meta property="og:description" content="One scene. A native 3D latent. A world of possibilities.">
+  <meta property="og:image" content="assets/teaser.webp">
+  <title>NaviCraft | Native 3D Scene Editing</title>
+  <link rel="icon" href="assets/icon.png">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/lucide.min.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#video">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="wordmark" href="#" aria-label="NaviCraft home"><span class="brand-symbol" aria-hidden="true">N<span>c</span></span>NaviCraft<span class="brand-period">.</span></a>
+      <div class="nav-sections"><a href="#video">Video</a><a href="#method">Method</a><a href="#dataset">Dataset</a><a href="#results">Results</a></div>
+
+    </nav>
+    <div class="reading-progress" aria-hidden="true"></div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="project-title">
+      <div class="hero-intro wrap">
+        <p class="eyebrow"><span class="status-dot"></span> Native 3D scene editing</p>
+        <h1 id="project-title">Navi<span>Craft</span><span class="title-dot">.</span></h1>
+        <h2 class="paper-title">Scaling Generalizable 3D Scene Editing<br class="desktop-break"> in Native 3D Latent Space</h2>
+        <div class="authors" aria-label="Authors">
+          <span>Yecong Wan<sup>1</sup></span><span>Fan Li<sup>2</sup></span><span>Mingwen Shao<sup>3</sup></span><span>Wangmeng Zuo<sup>1</sup></span>
+        </div>
+        <div class="affiliations"><span><sup>1</sup>Harbin Institute of Technology</span><span><sup>2</sup>Huawei Noah's Ark Lab</span><span><sup>3</sup>Shenzhen University of Advanced Technology</span></div>
+        <div class="resource-links">
+          <a class="button primary" href="assets/paper.pdf" target="_blank" rel="noopener"><span data-icon="file-text"></span> Paper <span data-icon="arrow-up-right"></span></a>
+          <a class="button" href="#video"><span data-icon="play"></span> Video</a>
+          <a class="button code-button" href="https://github.com/yecongwan/NaviCraft" target="_blank" rel="noopener"><span data-icon="code-2"></span> Code <span data-icon="arrow-up-right"></span></a>
+        </div>
+      </div>
+      <figure class="hero-scene wrap">
+        <img src="assets/teaser.webp" width="1791" height="849" alt="NaviCraft examples: rug removal, sculpture replacement, car recoloring, and bedroom stylization" fetchpriority="high">
+        <figcaption><span>ONE SCENE. MANY POSSIBILITIES.</span> Text-guided edits. Geometrically coherent results.</figcaption>
+      </figure>
+    </section>
+
+<section id="video" class="section video-band">
+      <div class="wrap"><div class="section-label"><span>VIDEO</span><span class="line"></span></div><div class="section-heading"><h2>A new perspective on scene editing.</h2></div><video controls playsinline muted preload="metadata" ><source src="assets/demo.mp4" type="video/mp4">Your browser does not support video playback.</video><p class="video-caption">NaviCraft.</p></div>
+    </section>
+
+    <section id="method" class="section method wrap">
+      <div class="section-label"><span>METHOD</span><span class="line"></span></div>
+      <div class="section-heading"><h2>From views to a native<br><span class="accent">3D editing space.</span></h2><p>One representation connects perception, instruction, and generation.</p></div>
+      <article class="method-block"><div class="method-title"><span class="step-number">01</span><div><h3>NaviVAE</h3><p>A compact, semantically enriched native 3D representation.</p></div></div><figure><button class="figure-zoom" data-zoom="assets/navivae.webp" aria-label="Enlarge NaviVAE architecture"><img src="assets/navivae.webp" width="1791" height="473" loading="lazy" alt="NaviVAE architecture: unposed image features are aggregated into native latent tokens and decoded into Gaussian primitives"><span data-icon="maximize-2" class="zoom-indicator"></span></button><figcaption>Learnable tokens aggregate visual features through cross-attention. Semantic distillation enriches the latent, which is decoded directly into 3D Gaussian primitives.</figcaption></figure></article>
+      <article class="method-block"><div class="method-title"><span class="step-number coral">02</span><div><h3>NaviCraft</h3><p>Text-guided transformations, directly in native 3D latent space.</p></div></div><figure><button class="figure-zoom" data-zoom="assets/navicraft.webp" aria-label="Enlarge NaviCraft framework"><img src="assets/navicraft.webp" width="1791" height="520" loading="lazy" alt="NaviCraft diffusion transformer with Text and Gaussian Mappers and four-stage training"><span data-icon="maximize-2" class="zoom-indicator"></span></button><figcaption>Text and Gaussian Mappers bridge the pre-trained diffusion transformer and the native 3D latent space. Flow matching learns the target scene transformation.</figcaption></figure></article>
+      <div class="training-stages"><div><span>STAGE 01</span><h4>Mapper adaptation</h4><p>Connect native 3D latents to the generative prior.</p></div><div><span>STAGE 02</span><h4>Modality alignment</h4><p>Align text semantics with native scene representations.</p></div><div><span>STAGE 03</span><h4>Generation + editing</h4><p>Jointly train text-to-3D synthesis and scene editing.</p></div><div><span>STAGE 04</span><h4>Reward refinement</h4><p>Improve editing behavior with reinforcement learning.</p></div></div>
+    </section>
+
+    <section id="dataset" class="section dataset-band"><div class="wrap">
+      <div class="section-label"><span>DATASET</span><span class="line"></span></div>
+      <div class="section-heading"><h2>NaviEdit<span class="accent">-1M</span></h2><p>A scalable foundation for learning generalizable 3D scene transformations.</p></div>
+      <div class="data-stats"><div><strong>1M</strong><span>Multi-view editing samples</span></div><div><strong>~9M</strong><span>Viewpoints</span></div><div><strong>200K</strong><span>Additional single-view samples</span></div><div><strong>200</strong><span>Scenes in NaviEdit-Bench</span></div></div>
+      <figure><button class="figure-zoom" data-zoom="assets/dataset.webp" aria-label="Enlarge NaviEdit-1M construction pipeline"><img src="assets/dataset.webp" width="1791" height="531" loading="lazy" alt="NaviEdit-1M construction: single-view editing, 3D scene composition, and editing pair construction"><span data-icon="maximize-2" class="zoom-indicator"></span></button><figcaption>Single-view editing and segmentation, 3D reconstruction and composition, then cross-view-consistent editing pair construction. Addition, removal, and change comprise 1M multi-view samples; global editing adds 200K single-view samples.</figcaption></figure>
+    </div></section>
+
+    <section id="results" class="section results wrap"><div class="section-label"><span>RESULTS</span><span class="line"></span></div><div class="section-heading"><h2>The details make<br>the difference.</h2><p>Instruction fidelity, scene preservation, and coherent appearance across viewpoints.</p></div>
+      <figure><button class="figure-zoom" data-zoom="assets/comparison.webp" aria-label="Enlarge qualitative comparison"><img src="assets/comparison.webp" width="1791" height="1109" loading="lazy" alt="Figure 6 comparison: source, DGE, EditSplat, ViP3DEdit, Edit3r, Omni3DEdit, and NaviCraft across five editing examples"><span data-icon="maximize-2" class="zoom-indicator"></span></button><figcaption>Qualitative comparisons on NaviEdit-Bench across removal, addition, replacement, recoloring, and global editing. Source: Figure 6 of the paper.</figcaption></figure>
+      <div class="evaluation-note"><span data-icon="chart-no-axes-combined"></span><p><strong>Evaluation on NaviEdit-Bench</strong><br>Instruction following, visual score, photometric reprojection loss, and human evaluation.</p></div>
+    </section>
+
+<section id="citation" class="section wrap narrow"><div class="section-label"><span>REFERENCE</span><span class="line"></span></div><div class="citation-heading"><h2>Citation</h2><button id="copy-citation" class="button" aria-label="Copy BibTeX citation"><span data-icon="copy"></span><span id="copy-label">Copy BibTeX</span></button></div><pre><code id="bibtex">@misc{wan2026navicraft,
+  title = {NaviCraft: Scaling Generalizable 3D Scene Editing in Native 3D Latent Space},
+  author = {Wan, Yecong and Li, Fan and Shao, Mingwen and Zuo, Wangmeng},
+  year = {2026}
+}</code></pre><span id="copy-status" role="status" aria-live="polite"></span></section>
+  </main>
+  <footer class="wrap footer"><a class="wordmark" href="#">NaviCraft<span class="brand-period">.</span></a><p>Native 3D scene editing.</p><a href="#">Back to top <span data-icon="arrow-up"></span></a></footer>
+  <dialog id="figure-dialog" aria-label="Enlarged paper figure"><button id="close-dialog" aria-label="Close enlarged figure"><span data-icon="x"></span></button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog>
+</body>
+</html>
